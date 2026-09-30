@@ -1,0 +1,32 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Variáveis de ambiente e segredos
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Dependências geradas pelos containers/projetos
+**/node_modules/
+**/vendor/
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+tmp/
+.cache/
+
+# IDEs e editores
+.idea/
+.vscode/
+
+# Arquivos locais do Docker Compose
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Cobertura e resultados de testes
+coverage/
+.phpunit.result.cache

@@ -1,0 +1,8 @@
+.git
+.env
+**/.env
+api/vendor
+api/node_modules
+api/storage/logs
+webapp/node_modules
+webapp/dist
