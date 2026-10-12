@@ -27,16 +27,16 @@ function Button({ variant = 'primary', className = '', children, ...props }) {
 function App() {
   return (
     <div className="flex min-h-screen flex-col overflow-hidden">
-      <header className="relative flex flex-wrap items-center justify-between border-b border-line px-6 py-[17px] sm:px-[5vw] sm:py-[22px] lg:px-[76px]">
+      <header className="relative flex flex-wrap items-center justify-between border-b border-line px-6 py-2 sm:px-[5vw] sm:py-3 lg:px-[76px]">
         <a
           className="inline-flex items-center gap-[9px] text-[15px] font-bold tracking-[-0.03em] text-[#f2f7f7] no-underline sm:text-[17px]"
           href="/"
-          aria-label="Reddit Clone - início"
+          aria-label="Reddit - início"
         >
           <span className="inline-flex size-8 items-center justify-center rounded-lg bg-orange font-mono text-[15px] tracking-[-0.1em] text-white">
             r/
           </span>
-          <span>Reddit Clone</span>
+          <span>Reddit</span>
         </a>
 
         <form
@@ -45,7 +45,7 @@ function App() {
           onSubmit={(event) => event.preventDefault()}
         >
           <label className="sr-only" htmlFor="site-search">
-            Pesquisar no Reddit Clone
+            Pesquisar no Reddit
           </label>
           <div className="relative w-full">
             <svg
@@ -164,7 +164,7 @@ function App() {
       </main>
 
       <footer className="mt-auto flex flex-col gap-4 border-t border-line px-6 py-[22px] font-mono text-[10px] uppercase tracking-[0.03em] text-[#a6adb1] sm:flex-row sm:items-center sm:justify-between sm:px-[5vw] lg:px-[76px]">
-        <span>Reddit Clone</span>
+        <span>Reddit</span>
         <span>Frontend em React + Vite</span>
       </footer>
     </div>
