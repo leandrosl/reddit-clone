@@ -1,94 +1,140 @@
-import './App.css'
-
 const communities = [
   { name: 'r/programacao', members: '128 mil membros' },
   { name: 'r/tecnologia', members: '86 mil membros' },
   { name: 'r/estudos', members: '42 mil membros' },
 ]
 
+const buttonStyles = {
+  primary:
+    'bg-orange text-white hover:bg-orange-dark',
+  ghost:
+    'bg-transparent text-ink hover:bg-[#ebe8e2]',
+  secondary:
+    'bg-ink text-white',
+}
+
+function Button({ variant = 'primary', className = '', children, ...props }) {
+  return (
+    <button
+      className={`inline-flex items-center justify-center rounded-[7px] border-0 px-[18px] py-3 text-[13px] font-semibold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange ${buttonStyles[variant]} ${className}`}
+      {...props}
+    >
+      {children}
+    </button>
+  )
+}
+
 function App() {
   return (
-    <div className="app-shell">
-      <header className="topbar">
-        <a className="brand" href="/" aria-label="Reddit Clone - início">
-          <span className="brand-mark">r/</span>
+    <div className="flex min-h-screen flex-col overflow-hidden">
+      <header className="flex items-center justify-between border-b border-line px-6 py-[17px] sm:px-[5vw] sm:py-[22px] lg:px-[76px]">
+        <a
+          className="inline-flex items-center gap-[9px] text-[15px] font-bold tracking-[-0.03em] text-ink no-underline sm:text-[17px]"
+          href="/"
+          aria-label="Reddit Clone - início"
+        >
+          <span className="inline-flex size-8 items-center justify-center rounded-lg bg-orange font-mono text-[15px] tracking-[-0.1em] text-white">
+            r/
+          </span>
           <span>Reddit Clone</span>
         </a>
 
-        <nav className="topbar-actions" aria-label="Navegação principal">
-          <button className="button button-ghost" type="button">
+        <nav className="flex gap-2.5" aria-label="Navegação principal">
+          <Button variant="ghost" className="hidden sm:inline-flex" type="button">
             Entrar
-          </button>
-          <button className="button button-primary" type="button">
+          </Button>
+          <Button className="px-3 sm:px-[18px]" type="button">
             Criar conta
-          </button>
+          </Button>
         </nav>
       </header>
 
-      <main className="page-content">
-        <section className="hero" aria-labelledby="page-title">
-          <p className="eyebrow">Uma comunidade para todas as ideias</p>
-          <h1 id="page-title">O que está acontecendo hoje?</h1>
-          <p className="hero-copy">
+      <main className="mx-auto w-full max-w-[1320px] px-6 pb-[45px] pt-[63px] sm:px-[5vw] sm:pb-16 sm:pt-[88px] lg:px-[76px]">
+        <section className="max-w-[760px]" aria-labelledby="page-title">
+          <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.08em] text-orange">
+            Uma comunidade para todas as ideias
+          </p>
+          <h1
+            className="mb-[25px] max-w-[700px] text-[clamp(45px,7vw,88px)] font-bold leading-[0.97] tracking-[-0.075em]"
+            id="page-title"
+          >
+            O que está acontecendo hoje?
+          </h1>
+          <p className="mb-7 max-w-[540px] text-[17px] leading-[1.6] text-muted">
             Compartilhe descobertas, participe das conversas e encontre pessoas
             interessadas nos mesmos assuntos que você.
           </p>
-          <button className="button button-primary" type="button">
+          <Button type="button">
             Começar uma discussão
-          </button>
+          </Button>
         </section>
 
-        <div className="content-grid">
-          <section className="feed" aria-labelledby="feed-title">
-            <div className="section-heading">
+        <div className="mt-[72px] grid items-start gap-8 md:mt-[100px] md:grid-cols-[minmax(0,1fr)_340px] md:gap-[clamp(32px,6vw,96px)]">
+          <section aria-labelledby="feed-title">
+            <div className="flex flex-col items-start justify-between gap-2.5 md:flex-row md:items-end">
               <div>
-                <p className="eyebrow">Feed da comunidade</p>
-                <h2 id="feed-title">Posts recentes</h2>
+                <p className="mb-2.5 font-mono text-[11px] uppercase tracking-[0.08em] text-orange">
+                  Feed da comunidade
+                </p>
+                <h2 className="mb-0 text-2xl font-semibold tracking-[-0.05em]" id="feed-title">
+                  Posts recentes
+                </h2>
               </div>
-              <button className="sort-button" type="button">
-                Mais recentes <span aria-hidden="true">⌄</span>
+              <button
+                className="border-0 bg-transparent p-2 text-xs text-muted"
+                type="button"
+              >
+                Mais recentes <span className="ml-1 text-[17px] text-orange" aria-hidden="true">⌄</span>
               </button>
             </div>
 
-            <article className="empty-state">
-              <div className="empty-icon" aria-hidden="true">✦</div>
-              <h3>Seu feed começa aqui</h3>
-              <p>
+            <article className="mt-6 flex flex-col items-center rounded-[10px] border border-line bg-cream px-[30px] py-[66px] text-center">
+              <div className="mb-[22px] flex size-[58px] rotate-[12deg] items-center justify-center rounded-full bg-yellow text-[25px]" aria-hidden="true">
+                ✦
+              </div>
+              <h3 className="mb-[9px] text-xl font-semibold tracking-[-0.04em]">
+                Seu feed começa aqui
+              </h3>
+              <p className="mb-0 max-w-[380px] text-sm leading-[1.6] text-muted">
                 Os posts da API aparecerão nesta área assim que a comunidade
                 começar a publicar.
               </p>
-              <button className="button button-secondary" type="button">
+              <Button variant="secondary" className="mt-[13px]" type="button">
                 Explorar comunidades
-              </button>
+              </Button>
             </article>
           </section>
 
-          <aside className="sidebar" aria-labelledby="communities-title">
-            <div className="sidebar-heading">
-              <h2 id="communities-title">Comunidades em destaque</h2>
-              <span className="live-dot" aria-label="Atualizado agora" />
+          <aside className="rounded-[10px] bg-ink px-[25px] pb-[22px] pt-[27px] text-white" aria-labelledby="communities-title">
+            <div className="flex items-end justify-between">
+              <h2 className="max-w-[210px] text-xl font-semibold tracking-[-0.05em]" id="communities-title">
+                Comunidades em destaque
+              </h2>
+              <span className="mb-[3px] size-[13px] rounded-full border-4 border-[#3d3d39] bg-[#79d89c]" aria-label="Atualizado agora" />
             </div>
-            <ul className="community-list">
+            <ul className="my-5 mb-5 mt-[29px] list-none p-0">
               {communities.map((community, index) => (
-                <li key={community.name} className="community-item">
-                  <span className="community-rank">0{index + 1}</span>
-                  <span className="community-avatar">{community.name[2]}</span>
-                  <span className="community-details">
-                    <strong>{community.name}</strong>
-                    <small>{community.members}</small>
+                <li key={community.name} className="flex items-center gap-2.5 border-b border-[#41413d] py-4 last:border-0">
+                  <span className="font-mono text-[10px] text-[#8b8983]">0{index + 1}</span>
+                  <span className="flex size-[31px] items-center justify-center rounded-full bg-orange text-[13px] font-bold">
+                    {community.name[2]}
                   </span>
-                  <span className="community-arrow" aria-hidden="true">↗</span>
+                  <span className="flex flex-1 flex-col gap-[3px]">
+                    <strong className="text-[13px] font-semibold">{community.name}</strong>
+                    <small className="text-[10px] text-[#8b8983]">{community.members}</small>
+                  </span>
+                  <span className="text-base text-[#8b8983]" aria-hidden="true">↗</span>
                 </li>
               ))}
             </ul>
-            <button className="all-communities" type="button">
-              Ver todas as comunidades <span aria-hidden="true">→</span>
+            <button className="border-0 bg-transparent p-0 text-xs text-yellow" type="button">
+              Ver todas as comunidades <span className="ml-1 text-[17px]" aria-hidden="true">→</span>
             </button>
           </aside>
         </div>
       </main>
 
-      <footer className="footer">
+      <footer className="mt-auto flex flex-col gap-4 border-t border-line px-6 py-[22px] font-mono text-[10px] uppercase tracking-[0.03em] text-muted sm:flex-row sm:items-center sm:justify-between sm:px-[5vw] lg:px-[76px]">
         <span>Reddit Clone</span>
         <span>Frontend em React + Vite</span>
       </footer>
