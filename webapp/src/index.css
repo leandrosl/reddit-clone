@@ -4,7 +4,7 @@
 @theme {
   --color-ink: #20201e;
   --color-muted: #77746e;
-  --color-line: #dedbd4;
+  --color-line: #2d3437;
   --color-orange: #f04f2f;
   --color-orange-dark: #d94123;
   --color-cream: #fbfaf7;
@@ -17,8 +17,8 @@
   body {
     min-width: 320px;
     min-height: 100vh;
-    background: #f5f3ef;
-    color: var(--color-ink);
+    background: #0e1113;
+    color: #f2f7f7;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;

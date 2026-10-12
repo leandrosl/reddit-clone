@@ -8,7 +8,7 @@ const buttonStyles = {
   primary:
     'bg-orange text-white hover:bg-orange-dark',
   ghost:
-    'bg-transparent text-ink hover:bg-[#ebe8e2]',
+    'bg-transparent text-[#f2f7f7] hover:bg-[#202124]',
   secondary:
     'bg-ink text-white',
 }
@@ -29,7 +29,7 @@ function App() {
     <div className="flex min-h-screen flex-col overflow-hidden">
       <header className="flex items-center justify-between border-b border-line px-6 py-[17px] sm:px-[5vw] sm:py-[22px] lg:px-[76px]">
         <a
-          className="inline-flex items-center gap-[9px] text-[15px] font-bold tracking-[-0.03em] text-ink no-underline sm:text-[17px]"
+          className="inline-flex items-center gap-[9px] text-[15px] font-bold tracking-[-0.03em] text-[#f2f7f7] no-underline sm:text-[17px]"
           href="/"
           aria-label="Reddit Clone - início"
         >
@@ -60,7 +60,7 @@ function App() {
           >
             O que está acontecendo hoje?
           </h1>
-          <p className="mb-7 max-w-[540px] text-[17px] leading-[1.6] text-muted">
+          <p className="mb-7 max-w-[540px] text-[17px] leading-[1.6] text-[#a6adb1]">
             Compartilhe descobertas, participe das conversas e encontre pessoas
             interessadas nos mesmos assuntos que você.
           </p>
@@ -81,7 +81,7 @@ function App() {
                 </h2>
               </div>
               <button
-                className="border-0 bg-transparent p-2 text-xs text-muted"
+                className="border-0 bg-transparent p-2 text-xs text-[#a6adb1]"
                 type="button"
               >
                 Mais recentes <span className="ml-1 text-[17px] text-orange" aria-hidden="true">⌄</span>
@@ -95,7 +95,7 @@ function App() {
               <h3 className="mb-[9px] text-xl font-semibold tracking-[-0.04em]">
                 Seu feed começa aqui
               </h3>
-              <p className="mb-0 max-w-[380px] text-sm leading-[1.6] text-muted">
+              <p className="mb-0 max-w-[380px] text-sm leading-[1.6] text-[#77746e]">
                 Os posts da API aparecerão nesta área assim que a comunidade
                 começar a publicar.
               </p>
@@ -134,7 +134,7 @@ function App() {
         </div>
       </main>
 
-      <footer className="mt-auto flex flex-col gap-4 border-t border-line px-6 py-[22px] font-mono text-[10px] uppercase tracking-[0.03em] text-muted sm:flex-row sm:items-center sm:justify-between sm:px-[5vw] lg:px-[76px]">
+      <footer className="mt-auto flex flex-col gap-4 border-t border-line px-6 py-[22px] font-mono text-[10px] uppercase tracking-[0.03em] text-[#a6adb1] sm:flex-row sm:items-center sm:justify-between sm:px-[5vw] lg:px-[76px]">
         <span>Reddit Clone</span>
         <span>Frontend em React + Vite</span>
       </footer>
