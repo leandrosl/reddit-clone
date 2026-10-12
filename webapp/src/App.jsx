@@ -78,28 +78,11 @@ function App() {
         </nav>
       </header>
 
-      <main className="mx-auto w-full max-w-[1320px] px-6 pb-[45px] pt-[63px] sm:px-[5vw] sm:pb-16 sm:pt-[88px] lg:px-[76px]">
-        <section className="max-w-[760px]" aria-labelledby="page-title">
-          <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.08em] text-orange">
-            Uma comunidade para todas as ideias
-          </p>
-          <h1
-            className="mb-[25px] max-w-[700px] text-[clamp(45px,7vw,88px)] font-bold leading-[0.97] tracking-[-0.075em]"
-            id="page-title"
-          >
-            O que está acontecendo hoje?
-          </h1>
-          <p className="mb-7 max-w-[540px] text-[17px] leading-[1.6] text-[#a6adb1]">
-            Compartilhe descobertas, participe das conversas e encontre pessoas
-            interessadas nos mesmos assuntos que você.
-          </p>
-          <Button type="button">
-            Começar uma discussão
-          </Button>
-        </section>
+      <main className="mx-auto w-full max-w-[1320px] px-6 pb-[45px] pt-10 sm:px-[5vw] sm:pb-16 sm:pt-14 lg:px-[76px]">
+        <div className="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_340px] md:gap-[clamp(32px,6vw,96px)] lg:grid-cols-[180px_minmax(0,1fr)_320px] lg:gap-8">
+          <div className="hidden lg:block" aria-hidden="true" />
 
-        <div className="mt-[72px] grid items-start gap-8 md:mt-[100px] md:grid-cols-[minmax(0,1fr)_340px] md:gap-[clamp(32px,6vw,96px)]">
-          <section aria-labelledby="feed-title">
+          <section className="lg:col-start-2" aria-labelledby="feed-title">
             <div className="flex flex-col items-start justify-between gap-2.5 md:flex-row md:items-end">
               <div>
                 <p className="mb-2.5 font-mono text-[11px] uppercase tracking-[0.08em] text-orange">
@@ -134,7 +117,7 @@ function App() {
             </article>
           </section>
 
-          <aside className="rounded-[10px] bg-ink px-[25px] pb-[22px] pt-[27px] text-white" aria-labelledby="communities-title">
+          <aside className="rounded-[10px] bg-ink px-[25px] pb-[22px] pt-[27px] text-white lg:col-start-3" aria-labelledby="communities-title">
             <div className="flex items-end justify-between">
               <h2 className="max-w-[210px] text-xl font-semibold tracking-[-0.05em]" id="communities-title">
                 Comunidades em destaque
