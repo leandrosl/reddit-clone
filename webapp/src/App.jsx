@@ -27,7 +27,7 @@ function Button({ variant = 'primary', className = '', children, ...props }) {
 function App() {
   return (
     <div className="flex min-h-screen flex-col overflow-hidden">
-      <header className="flex items-center justify-between border-b border-line px-6 py-[17px] sm:px-[5vw] sm:py-[22px] lg:px-[76px]">
+      <header className="relative flex flex-wrap items-center justify-between border-b border-line px-6 py-[17px] sm:px-[5vw] sm:py-[22px] lg:px-[76px]">
         <a
           className="inline-flex items-center gap-[9px] text-[15px] font-bold tracking-[-0.03em] text-[#f2f7f7] no-underline sm:text-[17px]"
           href="/"
@@ -38,6 +38,35 @@ function App() {
           </span>
           <span>Reddit Clone</span>
         </a>
+
+        <form
+          className="order-3 mt-4 flex w-full md:absolute md:left-1/2 md:top-1/2 md:order-none md:mt-0 md:w-[min(40vw,420px)] md:-translate-x-1/2 md:-translate-y-1/2"
+          role="search"
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <label className="sr-only" htmlFor="site-search">
+            Pesquisar no Reddit Clone
+          </label>
+          <div className="relative w-full">
+            <svg
+              className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#a6adb1]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-4-4" />
+            </svg>
+            <input
+              id="site-search"
+              className="w-full rounded-lg border border-[#2d3437] bg-[#202124] py-2.5 pl-10 pr-4 text-sm text-[#f2f7f7] outline-none placeholder:text-[#8b9498] focus:border-orange focus:ring-2 focus:ring-orange/20"
+              type="search"
+              placeholder="Pesquisar"
+            />
+          </div>
+        </form>
 
         <nav className="flex gap-2.5" aria-label="Navegação principal">
           <Button variant="ghost" className="hidden sm:inline-flex" type="button">
