@@ -1,3 +1,7 @@
+import { Route, Routes } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import CommunityPage from './pages/CommunityPage'
+
 const communities = [
   { name: 'r/programacao', members: '128 mil membros' },
   { name: 'r/tecnologia', members: '86 mil membros' },
@@ -24,10 +28,10 @@ function Button({ variant = 'primary', className = '', children, ...props }) {
   )
 }
 
-function App() {
+function HomePage() {
   return (
     <div className="flex min-h-screen flex-col overflow-hidden">
-      <header className="relative flex flex-wrap items-center justify-between border-b border-line px-6 py-2 sm:px-[5vw] sm:py-3 lg:px-[76px]">
+      <header className="relative flex flex-wrap items-center justify-between border-b border-line bg-[#0e1113] px-6 py-2 sm:px-[5vw] sm:py-3 lg:px-[76px]">
         <a
           className="inline-flex items-center gap-[9px] text-[15px] font-bold tracking-[-0.03em] text-[#f2f7f7] no-underline sm:text-[17px]"
           href="/"
@@ -92,10 +96,7 @@ function App() {
                   Posts recentes
                 </h2>
               </div>
-              <button
-                className="border-0 bg-transparent p-2 text-xs text-[#a6adb1]"
-                type="button"
-              >
+              <button className="border-0 bg-transparent p-2 text-xs text-[#a6adb1]" type="button">
                 Mais recentes <span className="ml-1 text-[17px] text-orange" aria-hidden="true">⌄</span>
               </button>
             </div>
@@ -132,7 +133,9 @@ function App() {
                     {community.name[2]}
                   </span>
                   <span className="flex flex-1 flex-col gap-[3px]">
-                    <strong className="text-[13px] font-semibold">{community.name}</strong>
+                    <Link className="text-[13px] font-semibold no-underline hover:text-white" to={`/r/${community.name.slice(2)}`}>
+                      {community.name}
+                    </Link>
                     <small className="text-[10px] text-[#8b8983]">{community.members}</small>
                   </span>
                   <span className="text-base text-[#8b8983]" aria-hidden="true">↗</span>
@@ -151,6 +154,16 @@ function App() {
         <span>Frontend em React + Vite</span>
       </footer>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/r/:communityName" element={<CommunityPage />} />
+      <Route path="*" element={<HomePage />} />
+    </Routes>
   )
 }
 
